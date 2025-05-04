@@ -29,8 +29,6 @@ const extraBusy = {
     { letter: "B", start: "09:10", end: "10:00" },
     { letter: "C", start: "10:10", end: "11:00" },
     { letter: "D", start: "11:10", end: "12:00" },
-    // 新增中午
-    { letter: "N", start: "12:10", end: "13:00" },
     { letter: "E", start: "13:10", end: "14:00" },
     { letter: "F", start: "14:10", end: "15:00" },
     { letter: "G", start: "15:10", end: "16:00" },
