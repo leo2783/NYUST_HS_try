@@ -77,7 +77,8 @@ function freeList(w, s, t) {
 function search({ select, slot, week, res, img }) {
   const name = select.value;
   const sIdx = +slot.value, wIdx = +week.value;
-  img.src = photoSrc(name); img.alt = name;
+  img.src = photoSrc(name); 
+  img.alt = name;
   const sch = schedules[name];
   if (!sch) { res.textContent = "查無此課表"; return; }
 
