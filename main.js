@@ -65,7 +65,13 @@ const getSlotIdx = (d = new Date()) => {
 };
 
 const isBusy = (name, w, t) => (extraBusy[name] || []).some(({ weekday, start, end }) => weekday === w && start <= t && t < end);
-const photoSrc = n => encodeURI(photoMap[n] || fallbackPhoto);
+function photoSrc(name) {
+  const pid = schedules[name]?.pid;          // ← 讀剛才塞進 schedules 的 pid
+  return pid && photoMap[pid]
+         ? encodeURI(photoMap[pid])
+         : fallbackPhoto;
+}
+
 
 function freeList(w, s, t) {
   return Object.entries(schedules).filter(([n, { data }]) => {
@@ -75,7 +81,7 @@ function freeList(w, s, t) {
 }
 
 function search({ select, slot, week, res, img }) {
-  const name = select.value;
+  const name = select.value.trim();
   const sIdx = +slot.value, wIdx = +week.value;
   img.src = photoSrc(name); 
   img.alt = name;
